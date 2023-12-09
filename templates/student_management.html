@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Members group</h1>
+{% for name in group_name %}
+<span>{{ name }}</span>
+{% endfor %}
+<h2>Add student to group</h2>
+<form method="post">
+    <label for="surname">Введіть прізвище студента</label><br>
+    <input type="text" id="surname" name="surname"><br>
+
+    <label for="name">Введіть name студента</label><br>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="age">Введіть вік студента</label><br>
+    <input type="text" id="age" name="age"><br>
+
+    <label for="home_address">Введіть прізвище студента</label><br>
+    <input type="text" id="home_address" name="home_address"><br>
+
+</form>
+{% endblock %}

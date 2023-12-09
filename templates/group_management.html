@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for group in group_names %}
+<a class="button">{{ group }}</a>
+{% endfor %}
+
+<form action="/group_management" method="post">
+    <label for="group_name">Введи назву групи щоб додати</label><br>
+    <input type="text" id="group_name" name="group_name"><br>
+    <input type="submit" value="Додати" class="button">
+</form>
+{% endblock %}

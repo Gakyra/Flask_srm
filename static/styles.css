@@ -1,0 +1,16 @@
+html {
+    background-color: aqua;
+    text-align: center;
+}
+
+.button {
+    background-color: red;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    border: none;
+}
+
+form > * {
+    margin: 6px;
+}
