@@ -1,6 +1,6 @@
 from sqlalchemy import Integer, Column, Text, String, ForeignKey, Table
 from sqlalchemy.orm import relationship
-from database import Base
+from .database import Base
 
 association_table = Table(
     "association",

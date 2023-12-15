@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="title">Авторизація</h2>
+<div class="box">
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <div class="notification">
+      {{messages[0], go to <a href="{{  url_for('login')  }}" }}>Login page</a>
+  </div>
+    {% endif %}
+    {% endwithf %}
+
+  <form method="post" action="/login">
+    <input class="input is-large"
+           type="text"
+           name="name"
+           autofocus=""
+           placeholder="Name">
+
+    <input class="input is-large"
+           type="password"
+           name="password"
+           placeholder="Password">
+
+    <label for="remember">Запам'ятай мене</label>
+    <input type="checkbox" id="remember" name="remember">
+
+    <button class="button">Зареєструвати</button>
+  </form>
+</div>
+{% endblock %}
