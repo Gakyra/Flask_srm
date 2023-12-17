@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
+    <ul class="nav">
+        <li><a href="/group_management">Керувати групами</a></li>
+        {% if current_user.is_authenticated %}
+        <li><a href="/logout">Вийти</a></li>
+        {% else %}
+        <li><a href="/login">Увійти</a></li>
+        <li><a href="/signup">Зареєструватись</a></li>
+        {% endif %}
+    </ul>
     {% block content %}
     {% endblock %}
 </body>
