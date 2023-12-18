@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Додати нову групу</h2>
+<form action="/group-management " method="post">
+    <label for="group_name">Введи назву групи щоб додати її</label><br>
+    <input type="text" id="group_name" name="group_name"><br>
+    <input type="submit" class="button" value="Додати">
+</form>
+
+
+<h2>Додати студента до групи</h2>
+<form method="post" action="/student_management">
+    <label for="surname">Введіть прізвище студента</label><br>
+    <input type="text" id="surname" name="surname"><br>
+
+    <label for="name">Введіть name студента</label><br>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="age">Введіть вік студента</label><br>
+    <input type="text" id="age" name="age"><br>
+
+    <label for="home_address">Введіть прізвище студента</label><br>
+    <input type="text" id="home_address" name="home_address"><br>
+
+    <label for="username">Введіть нікнейм студента</label><br>
+    <input type="text" id="username" name="username"><br>
+
+    <label for="password">Введіть пароль студента</label><br>
+    <input type="password" id="password" name="password"><br>
+
+    <select name="group">
+        {% for group in groups %}
+        <option value="{{ group }}">{{ group }}</option>
+        {% endfor %}
+    </select><br>
+    <input type="submit" class="button" value="Додати">
+</form>
+{% endblock %}
