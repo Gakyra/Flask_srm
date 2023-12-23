@@ -12,3 +12,5 @@ def admin_required(function):
             return redirect("profile")
         return redirect("login")
     return wrapper
+
+

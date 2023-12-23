@@ -11,22 +11,15 @@
     {% endif %}
     {% endwith %}
 
-    <form method="post" action="/login">
-        <input class="input is-large"
-               type="text"
-               name="name"
-               autofocus=""
-               placeholder="Name">
+<form method="post" action="/login">
+    {{ form.username.label }}<br>
+    {{ form.username }}
+    {{ form.password.label }}<br>
+    {{ form.password }}
+    {{ form.remember.label }}<br>
+    {{ form.remember }}
+    {{ form.submit }}
+</form>
 
-        <input class="input is-large"
-               type="password"
-               name="password"
-               placeholder="Password">
-
-        <label for="remember">Запам'ятай мене</label>
-        <input type="checkbox" id="remember" name="remember">
-
-        <button class="button">Зареєструвати</button>
-    </form>
 </div>
 {% endblock %}

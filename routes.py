@@ -43,7 +43,7 @@ def group_list_as_user(group_name):
 @app.route("/student_management", methods=["POST"])
 @login_required
 def group_list_as_user_login(group_name):
-    group_id = session.query(Group).where(Group.group_name == group_name).first().id
+
     surname = request.form["surname"]
     name = request.form["name"]
     username = request.form["username"]
@@ -51,13 +51,14 @@ def group_list_as_user_login(group_name):
     age = request.form["age"]
     home_address = request.form["home_address"]
     group_name = request.form["group"]
+    group_id = session.query(Group).where(Group.group_name == group_name).first().id
 
     student = Student(
         surname=surname,
         name=name,
         username=username,
         password=password,
-        age=age,
+        age=int(age),
         home_address=home_address,
         groups=group_id
     )
@@ -94,23 +95,9 @@ def group_list_as_user_login(group_name):
 #         return render_template("signup.html")
 
 
-# @app.route("/login", methods=["POST", "GET"])
+@app.route("/login", methods=["POST", "GET"])
 def login():
     form = LoginForm()
-    # if request.method == "POST":
-    #     username = request.form.get("name")
-    #     password = request.form.get("password")
-    #     remember = True if request.form.get("remember") else False
-    #
-    #     user = session.query(User).where(User.username == username).first()
-    #
-    #     if not user and not check_password_hash(user.password, password):
-    #         flash("Будь ласка, перевір свої деталі авторизпції та спробуй ще раз ")
-    #         return redirect(url_for("login"))
-    #
-    #     login_user(user, remember=remember)
-    #     return redirect("main")
-    # else:
     return render_template("login.html", form=form)
 
 

@@ -9,10 +9,14 @@
     <ul class="nav">
         <li><a href="/group_management">Керувати групами</a></li>
         {% if current_user.is_authenticated %}
-        <li><a href="/logout">Вийти</a></li>
+        {% if current_user.username == "admin" %}
+        <li><a href="/admin">Admin</a></li>
         {% else %}
-        <li><a href="/login">Увійти</a></li>
-        <li><a href="/signup">Зареєструватись</a></li>
+        <li><a href="/profile">Вийти</a></li>
+        {% endif %}
+        <li><a href="/logout">Увійти</a></li>
+        {% else %}
+        <li><a href="/login">Зареєструватись</a></li>
         {% endif %}
     </ul>
     {% block content %}
